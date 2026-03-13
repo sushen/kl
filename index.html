@@ -1,128 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kuberas Lotus - Trading Technology Ecosystem</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="bg-gray-900 text-white">
-    <header class="text-center py-10">
-        <h1 class="text-4xl font-bold text-yellow-400 mb-4">Kuberas Lotus</h1>
-        <h2 class="text-2xl text-purple-400">Trading Technology Ecosystem</h2>
-        <p class="text-lg text-blue-400 mt-2">Research Driven Trading Infrastructure</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kuberas Lotus | Trading Technology Ecosystem</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-bg"></div>
+
+    <header class="hero">
+      <p class="eyebrow">Kuberas Lotus</p>
+      <h1>Trading Technology Ecosystem</h1>
+      <p class="subtitle">Research Driven Trading Infrastructure</p>
     </header>
 
-    <main class="relative flex justify-center items-center min-h-screen">
-        <div id="ecosystem-map" class="relative w-full h-full">
-            <!-- SVG for connections -->
-            <svg id="connections" class="absolute inset-0 w-full h-full pointer-events-none">
-                <!-- Lines will be added here by JS -->
-            </svg>
-            <!-- Nodes -->
-            <div id="nodes" class="absolute inset-0">
-                <!-- Center node -->
-                <div class="node center-node" data-project="KuberasLotus">
-                    <div class="node-content">
-                        <h3>Kuberas Lotus</h3>
-                        <p>Core research engine</p>
-                    </div>
-                </div>
-                <!-- First layer -->
-                <div class="node first-layer" data-project="TrailblazerGrip">
-                    <div class="node-content">
-                        <h3>TrailblazerGrip</h3>
-                        <p>Strategy research framework</p>
-                    </div>
-                </div>
-                <div class="node first-layer" data-project="TinyTrailTitan">
-                    <div class="node-content">
-                        <h3>TinyTrailTitan</h3>
-                        <p>Automated trailing trading bot</p>
-                    </div>
-                </div>
-                <div class="node first-layer" data-project="TradingAi">
-                    <div class="node-content">
-                        <h3>TradingAi</h3>
-                        <p>Trading tools platform</p>
-                    </div>
-                </div>
-                <!-- Second layer -->
-                <div class="node second-layer" data-project="TradingAiWorld">
-                    <div class="node-content">
-                        <h3>TradingAiWorld</h3>
-                        <p>Web ecosystem platform</p>
-                    </div>
-                </div>
-                <div class="node second-layer" data-project="TradingAiMonitoringSystem">
-                    <div class="node-content">
-                        <h3>TradingAiMonitoringSystem</h3>
-                        <p>Signal monitoring and analytics</p>
-                    </div>
-                </div>
-                <div class="node second-layer" data-project="MobileTradingAi">
-                    <div class="node-content">
-                        <h3>MobileTradingAi</h3>
-                        <p>Mobile trading interface</p>
-                    </div>
-                </div>
-                <div class="node second-layer" data-project="TradingAilicense">
-                    <div class="node-content">
-                        <h3>TradingAilicense</h3>
-                        <p>Software licensing system</p>
-                    </div>
-                </div>
-                <div class="node second-layer" data-project="Open_Source_Community_Ai">
-                    <div class="node-content">
-                        <h3>Open_Source_Community_Ai</h3>
-                        <p>Community collaboration platform</p>
-                    </div>
-                </div>
-            </div>
+    <main>
+      <section class="map-section" aria-label="Interactive ecosystem map">
+        <div id="ecosystem-map" class="ecosystem-map">
+          <svg id="connections" class="connections" aria-hidden="true"></svg>
+          <div id="nodes-layer" class="nodes-layer"></div>
         </div>
+      </section>
+
+      <section class="pipeline" aria-label="Research pipeline">
+        <h2>Research Pipeline</h2>
+        <ol>
+          <li>Market Data</li>
+          <li>Event Detection</li>
+          <li>Signal Engine</li>
+          <li>Safe Entry</li>
+          <li>Trade Execution</li>
+          <li>Research Feedback</li>
+        </ol>
+      </section>
     </main>
 
-    <footer class="text-center py-10">
-        <h3 class="text-2xl font-bold text-yellow-400 mb-6">Research Pipeline</h3>
-        <div class="flex justify-center space-x-8">
-            <div class="pipeline-step">
-                <div class="step-circle">1</div>
-                <p>Market Data</p>
-            </div>
-            <div class="pipeline-step">
-                <div class="step-circle">2</div>
-                <p>Event Detection</p>
-            </div>
-            <div class="pipeline-step">
-                <div class="step-circle">3</div>
-                <p>Signal Engine</p>
-            </div>
-            <div class="pipeline-step">
-                <div class="step-circle">4</div>
-                <p>Safe Entry</p>
-            </div>
-            <div class="pipeline-step">
-                <div class="step-circle">5</div>
-                <p>Trade Execution</p>
-            </div>
-            <div class="pipeline-step">
-                <div class="step-circle">6</div>
-                <p>Research Feedback</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Modal -->
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
-        <div class="bg-gray-800 p-6 rounded-lg max-w-md w-full mx-4">
-            <h3 id="modal-title" class="text-xl font-bold text-yellow-400 mb-4"></h3>
-            <p id="modal-description" class="mb-4"></p>
-            <button id="open-repo" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Open Repository</button>
-            <button id="close-modal" class="ml-4 bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded">Close</button>
-        </div>
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-card">
+        <button id="close-modal" class="close-modal" aria-label="Close details">×</button>
+        <h3 id="modal-title"></h3>
+        <p id="modal-description"></p>
+        <a id="repo-link" class="repo-link" href="#" target="_blank" rel="noopener noreferrer">Open Repository</a>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
