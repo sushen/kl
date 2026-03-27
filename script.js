@@ -61,6 +61,13 @@ const projects = [
     description: 'Community collaboration platform',
     url: 'https://github.com/sushen/Open_Source_Community_Ai',
     layer: 'second'
+  },
+  {
+    id: 'ShaplaChottor',
+    name: 'ShaplaChottor',
+    description: 'Civic and historical project repository',
+    url: 'https://github.com/sushen/ShaplaChottor',
+    layer: 'second'
   }
 ];
 
