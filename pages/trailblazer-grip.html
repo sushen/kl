@@ -1,31 +1,774 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trailblazer Grip</title>
-    <style>
-      :root { --bg-1:#12081f; --bg-2:#2a1242; --card:rgba(30,16,46,.94); --text:#f3ecff; --muted:#c0aedb; --line:rgba(214,176,255,.28); }
-      * { box-sizing: border-box; }
-      body { margin:0; min-height:100vh; display:grid; place-items:center; padding:1rem; font-family:"Segoe UI",Roboto,Arial,sans-serif; color:var(--text); background:radial-gradient(circle at 50% 0%,var(--bg-2),var(--bg-1) 65%); }
-      .card { width:min(720px,94vw); border:1px solid var(--line); border-radius:16px; background:var(--card); padding:1.2rem 1.2rem 1.35rem; }
-      .eyebrow { margin:0; color:var(--muted); font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; }
-      h1 { margin:.45rem 0; font-size:clamp(1.45rem,3vw,2rem); }
-      .summary { margin:0; color:#e6d4ff; }
-      .actions { margin-top:1rem; display:flex; flex-wrap:wrap; gap:.65rem; }
-      .btn { text-decoration:none; border:1px solid var(--line); color:var(--text); padding:.52rem .85rem; border-radius:999px; font-size:.9rem; }
-      .btn.primary { border-color:rgba(184,116,255,.82); background:linear-gradient(90deg,rgba(184,116,255,.26),rgba(184,116,255,.1)); }
-    </style>
-  </head>
-  <body>
-    <main class="card">
-      <p class="eyebrow">Trading Technology Ecosystem</p>
-      <h1>Trailblazer Grip</h1>
-      <p class="summary">Signal detection and strategy triggers.</p>
-      <div class="actions">
-        <a class="btn primary" href="https://github.com/sushen/TrailblazerGrip" target="_blank" rel="noopener noreferrer">Open GitHub Repository</a>
-        <a class="btn" href="../index.html">Back to Ecosystem</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TrailblazerGripApp is an automated algorithmic trading intelligence platform for software downloads, strategy investment, education, and community support.">
+  <meta name="keywords" content="TrailblazerGripApp, algorithmic trading, trading bot, AI signals, backtesting, risk management">
+  <meta name="author" content="TrailblazerGripApp">
+  <meta property="og:title" content="TrailblazerGripApp | Automated Algorithmic Trading Intelligence">
+  <meta property="og:description" content="Download TrailblazerGripApp, learn algorithmic trading, invest in AI strategies, and join the Discord community.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sushen.github.io/TrailblazerGripApp/">
+  <title>TrailblazerGripApp | Automated Algorithmic Trading Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #05070c;
+      --bg-secondary: #0c1220;
+      --bg-card: #111a2f;
+      --text-primary: #e6f1ff;
+      --text-muted: #9db0c7;
+      --accent: #35d6c2;
+      --accent-strong: #0fb8f7;
+      --accent-warm: #f6a448;
+      --line: rgba(167, 193, 218, 0.2);
+      --shadow: 0 14px 40px rgba(3, 8, 18, 0.45);
+      --radius: 18px;
+      --container: 1120px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% -20%, rgba(53, 214, 194, 0.2), transparent 40%),
+        radial-gradient(circle at 85% 10%, rgba(15, 184, 247, 0.22), transparent 40%),
+        var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--container));
+      margin-inline: auto;
+    }
+
+    .section-padding {
+      padding: 4.5rem 0;
+    }
+
+    .section {
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .section.alt {
+      background: linear-gradient(180deg, rgba(10, 16, 28, 0.5), rgba(9, 14, 24, 0.05));
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+      margin: 0 0 0.5rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+      margin: 0 0 0.8rem;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 8vw, 3.4rem);
+    }
+
+    h2 {
+      color: var(--text-muted);
+      font-size: clamp(1.05rem, 3.8vw, 1.4rem);
+      font-weight: 500;
+    }
+
+    h3 {
+      font-size: clamp(1.5rem, 6vw, 2.4rem);
+    }
+
+    h4 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      margin: 0 0 1rem;
+      color: var(--text-muted);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(12px);
+      background: rgba(5, 8, 14, 0.76);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-toggle {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(14, 20, 34, 0.9);
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      padding: 0 10px;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: var(--text-primary);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .nav-menu {
+      position: absolute;
+      top: 72px;
+      right: 1rem;
+      left: 1rem;
+      margin: 0;
+      padding: 1rem;
+      list-style: none;
+      background: rgba(10, 16, 28, 0.96);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 0.7rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    }
+
+    .nav-menu a {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a:focus-visible,
+    .nav-menu a.is-active {
+      color: var(--text-primary);
+    }
+
+    .nav-open .nav-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .nav-open .nav-toggle span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-open .nav-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-open .nav-toggle span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(140deg, rgba(5, 12, 22, 0.96) 0%, rgba(7, 18, 34, 0.7) 50%, rgba(8, 26, 40, 0.55) 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(transparent 95%, rgba(255, 255, 255, 0.04) 96%),
+        linear-gradient(90deg, transparent 95%, rgba(255, 255, 255, 0.04) 96%);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 2rem;
+    }
+
+    .hero-description {
+      max-width: 62ch;
+    }
+
+    .hero-actions {
+      margin-top: 1.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      min-height: 46px;
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #03131f;
+      background: linear-gradient(120deg, var(--accent), var(--accent-strong));
+      box-shadow: 0 10px 28px rgba(16, 188, 232, 0.35);
+    }
+
+    .btn-secondary {
+      border-color: rgba(157, 176, 199, 0.45);
+      background: rgba(13, 19, 34, 0.45);
+      color: var(--text-primary);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      border-color: var(--accent);
+      box-shadow: 0 10px 28px rgba(53, 214, 194, 0.2);
+    }
+
+    .btn-large {
+      min-height: 56px;
+      min-width: min(100%, 280px);
+      font-size: 1rem;
+    }
+
+    .hero-panel {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .stat-card {
+      border: 1px solid rgba(157, 176, 199, 0.26);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(22, 31, 54, 0.92), rgba(10, 15, 28, 0.78));
+      padding: 1rem;
+    }
+
+    .stat-card p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: #bed3eb;
+    }
+
+    .stat-card strong {
+      font-size: 1.8rem;
+      color: #f2f7ff;
+    }
+
+    .section-head {
+      max-width: 760px;
+    }
+
+    .feature-grid {
+      margin-top: 1.8rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .feature-card {
+      border: 1px solid rgba(157, 176, 199, 0.2);
+      border-radius: var(--radius);
+      background: linear-gradient(160deg, rgba(20, 29, 48, 0.8), rgba(12, 17, 30, 0.65));
+      padding: 1.2rem;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(53, 214, 194, 0.7);
+      box-shadow: 0 14px 28px rgba(5, 10, 21, 0.4);
+    }
+
+    .feature-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 0.9rem;
+      background: rgba(53, 214, 194, 0.12);
+    }
+
+    .feature-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .split-grid {
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    .step-list {
+      margin: 0;
+      padding: 1rem;
+      list-style: none;
+      border-radius: var(--radius);
+      border: 1px solid rgba(157, 176, 199, 0.2);
+      background: rgba(8, 14, 24, 0.55);
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .step-list li {
+      border: 1px solid rgba(157, 176, 199, 0.2);
+      border-radius: 12px;
+      padding: 0.8rem;
+      color: #d0def0;
+      background: rgba(11, 19, 32, 0.8);
+    }
+
+    .step-list span {
+      display: block;
+      color: var(--accent-warm);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .topic-list {
+      margin: 0;
+      padding: 1rem;
+      list-style: none;
+      border-radius: var(--radius);
+      border: 1px solid rgba(157, 176, 199, 0.2);
+      background: rgba(9, 16, 26, 0.55);
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .topic-list li {
+      position: relative;
+      padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+      color: #d8e6f7;
+    }
+
+    .topic-list li::before {
+      content: "";
+      position: absolute;
+      left: 0.4rem;
+      top: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(120deg, var(--accent), var(--accent-strong));
+    }
+
+    .cta-block {
+      border: 1px solid rgba(157, 176, 199, 0.2);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(130deg, rgba(19, 29, 48, 0.9), rgba(10, 18, 30, 0.72)),
+        radial-gradient(circle at 85% 10%, rgba(246, 164, 72, 0.2), transparent 35%);
+      padding: 1.4rem;
+    }
+
+    .site-footer {
+      padding: 1.6rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: #050913;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .footer-content p {
+      margin: 0;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-links a {
+      color: #c6d8ef;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus-visible {
+      color: var(--accent);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (min-width: 700px) {
+      .section-padding {
+        padding: 5.5rem 0;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-panel {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 920px) {
+      .nav-toggle {
+        display: none;
+      }
+
+      .nav-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: flex;
+        gap: 1.1rem;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: center;
+      }
+
+      .split-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .cta-block {
+        padding: 2rem;
+      }
+
+      .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <nav class="navbar container" aria-label="Primary">
+      <a class="brand" href="#top">TrailblazerGripApp</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#invest">Invest</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#affiliate">Affiliate</a></li>
+        <li><a href="#community">Community</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-padding">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">AUTOMATED TRADING PLATFORM</p>
+          <h1>TrailblazerGripApp</h1>
+          <h2>Automated Algorithmic Trading Intelligence</h2>
+          <p class="hero-description">
+            A powerful AI-driven trading assistant that helps traders automate decisions and build algorithmic strategies.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://github.com/sushen/TrailblazerGrip/releases/download/v.4/Trailblazer.Grip_Setup_4.0.0.exe">Download TrailblazerGripApp</a>
+            <a class="btn btn-secondary" href="https://sushen.github.io/TrailblazerGripApp/downloads/TradingAiAndroid.apk" download>Download Android APK</a>
+            <a class="btn btn-secondary" href="https://discord.com/invite/GHjeawSYcp" target="_blank" rel="noopener noreferrer">Join Discord</a>
+          </div>
+        </div>
+        <div class="hero-panel reveal">
+          <div class="stat-card">
+            <p>Live Strategies</p>
+            <strong>24</strong>
+          </div>
+          <div class="stat-card">
+            <p>Signal Latency</p>
+            <strong>120ms</strong>
+          </div>
+          <div class="stat-card">
+            <p>Risk Profile Modes</p>
+            <strong>5</strong>
+          </div>
+        </div>
       </div>
-    </main>
-  </body>
+    </section>
+
+    <section class="section-padding section" id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">CORE CAPABILITIES</p>
+          <h3>What TrailblazerGripApp Does</h3>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img"><path d="M3 12h5l2-7 4 14 2-7h5" /></svg>
+            </div>
+            <h4>AI Trading Signals</h4>
+            <p>Receive machine-generated entries and exits based on live market context and signal scoring.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img"><path d="M4 6h16M4 12h10M4 18h7" /></svg>
+            </div>
+            <h4>Automated Strategy Execution</h4>
+            <p>Deploy rules-based trading automation that executes validated strategies without manual delay.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img"><path d="M4 19h16M7 16V9m5 7V5m5 11v-4" /></svg>
+            </div>
+            <h4>Market Data Analysis</h4>
+            <p>Analyze multi-timeframe data streams with AI pattern detection and momentum filtering.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img"><path d="M12 3l7 4v5c0 5-3.2 7.8-7 9-3.8-1.2-7-4-7-9V7l7-4z" /></svg>
+            </div>
+            <h4>Risk Management Tools</h4>
+            <p>Protect capital with configurable stops, position sizing controls, and adaptive drawdown limits.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding section alt" id="install">
+      <div class="container split-grid">
+        <div class="section-head reveal">
+          <p class="eyebrow">SETUP GUIDE</p>
+          <h3>Install TrailblazerGripApp</h3>
+          <p>Get started quickly with a simple setup flow designed for desktop trading environments.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-large" href="https://github.com/sushen/TrailblazerGrip/releases/download/v.4/Trailblazer.Grip_Setup_4.0.0.exe">Download TrailblazerGripApp</a>
+            <a class="btn btn-secondary btn-large" href="https://sushen.github.io/TrailblazerGripApp/downloads/TradingAiAndroid.apk" download>Download Android APK</a>
+          </div>
+        </div>
+        <ol class="step-list reveal" aria-label="Installation steps">
+          <li><span>Step 1</span>Download the software</li>
+          <li><span>Step 2</span>Install dependencies</li>
+          <li><span>Step 3</span>Connect trading API</li>
+          <li><span>Step 4</span>Run the bot</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-padding section" id="invest">
+      <div class="container cta-block reveal">
+        <p class="eyebrow">CAPITAL ALLOCATION</p>
+        <h3>Invest in AI Strategies</h3>
+        <p>Allocate capital to TrailblazerGripApp strategy portfolios and access structured, data-driven execution models.</p>
+        <div class="hero-actions">
+          <a class="btn btn-secondary" href="https://accounts.binance.com/en/register?ref=35023868" target="_blank" rel="noopener noreferrer">Become an Investor</a>
+          <a class="btn btn-secondary" href="https://discord.com/invite/GHjeawSYcp" target="_blank" rel="noopener noreferrer">Investor Support on Discord</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding section alt" id="education">
+      <div class="container split-grid">
+        <div class="section-head reveal">
+          <p class="eyebrow">ALGORITHMIC EDUCATION</p>
+          <h3>Learn Algorithmic Trading</h3>
+          <p>Build practical trading systems with focused training and implementation workshops.</p>
+          <a class="btn btn-secondary" href="https://discord.com/invite/GHjeawSYcp" target="_blank" rel="noopener noreferrer">Start Learning</a>
+        </div>
+        <ul class="topic-list reveal">
+          <li>Python for trading</li>
+          <li>Algorithmic strategy design</li>
+          <li>Risk management</li>
+          <li>Backtesting systems</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-padding section" id="affiliate">
+      <div class="container cta-block reveal">
+        <p class="eyebrow">PARTNER NETWORK</p>
+        <h3>Affiliate Program</h3>
+        <p>Promote TrailblazerGripApp to your audience and earn commission through our performance-based affiliate model.</p>
+        <a class="btn btn-secondary" href="https://discord.com/invite/GHjeawSYcp" target="_blank" rel="noopener noreferrer">Join Affiliate Program</a>
+      </div>
+    </section>
+
+    <section class="section-padding section alt" id="community">
+      <div class="container cta-block reveal">
+        <p class="eyebrow">COMMUNITY HUB</p>
+        <h3>Join the TrailblazerGripApp Discord</h3>
+        <p>Join our community for support, updates, trading discussion, and bot license access.</p>
+        <a class="btn btn-primary btn-large" href="https://discord.com/invite/GHjeawSYcp" target="_blank" rel="noopener noreferrer">Join Our Discord</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 TrailblazerGripApp. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://github.com/zrliqi/TradingAi" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://discord.com/invite/GHjeawSYcp" target="_blank" rel="noopener noreferrer">Discord</a>
+        <a href="https://accounts.binance.com/en/register?ref=35023868" target="_blank" rel="noopener noreferrer">Binance</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const navToggle = document.querySelector(".nav-toggle");
+    const navMenu = document.querySelector(".nav-menu");
+    const navLinks = Array.from(document.querySelectorAll(".nav-menu a"));
+    const revealElements = document.querySelectorAll(".reveal");
+    const sectionTargets = document.querySelectorAll("main section[id]");
+
+    if (navToggle && navMenu) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = body.classList.toggle("nav-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          body.classList.remove("nav-open");
+          navToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      revealElements.forEach((el) => revealObserver.observe(el));
+    } else {
+      revealElements.forEach((el) => el.classList.add("in-view"));
+    }
+
+    if ("IntersectionObserver" in window && sectionTargets.length) {
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            const currentId = entry.target.getAttribute("id");
+            navLinks.forEach((link) => {
+              const isActive = link.getAttribute("href") === `#${currentId}`;
+              link.classList.toggle("is-active", isActive);
+            });
+          });
+        },
+        {
+          rootMargin: "-40% 0px -45% 0px",
+          threshold: 0.1
+        }
+      );
+
+      sectionTargets.forEach((section) => sectionObserver.observe(section));
+    }
+  </script>
+</body>
 </html>
