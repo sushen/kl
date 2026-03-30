@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algorithmic Trading With Python</title>
+    <style>
+      :root {
+        --bg-1: #12081f;
+        --bg-2: #2a1242;
+        --card: rgba(30, 16, 46, 0.94);
+        --text: #f3ecff;
+        --muted: #c0aedb;
+        --line: rgba(214, 176, 255, 0.28);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+        font-family: "Segoe UI", Roboto, Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at 50% 0%, var(--bg-2), var(--bg-1) 65%);
+      }
+
+      .card {
+        width: min(760px, 94vw);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--card);
+        padding: 1.2rem 1.2rem 1.35rem;
+      }
+
+      .eyebrow {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.8rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0.45rem 0;
+        font-size: clamp(1.45rem, 3vw, 2rem);
+      }
+
+      .summary {
+        margin: 0;
+        color: #e6d4ff;
+      }
+
+      .actions {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+      }
+
+      .btn {
+        text-decoration: none;
+        border: 1px solid var(--line);
+        color: var(--text);
+        padding: 0.52rem 0.85rem;
+        border-radius: 999px;
+        font-size: 0.9rem;
+      }
+
+      .btn.primary {
+        border-color: rgba(184, 116, 255, 0.82);
+        background: linear-gradient(90deg, rgba(184, 116, 255, 0.26), rgba(184, 116, 255, 0.1));
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <p class="eyebrow">Trading Technology Ecosystem</p>
+      <h1>Algorithmic Trading With Python</h1>
+      <p class="summary">Educational algorithmic trading workflows and examples.</p>
+      <div class="actions">
+        <a
+          class="btn primary"
+          href="https://sushen.github.io/AlgorithmicTradingWithPython/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Open Landing Page</a
+        >
+        <a
+          class="btn"
+          href="https://github.com/sushen/AlgorithmicTradingWithPython"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Open GitHub Repository</a
+        >
+        <a class="btn" href="../index.html">Back to Ecosystem</a>
+      </div>
+    </main>
+  </body>
+</html>
